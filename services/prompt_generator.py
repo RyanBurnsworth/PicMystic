@@ -5,7 +5,7 @@ from utils.logger import Logger
 from utils.constants import Constants
 from utils.utils import Utils
 
-openai.api_key = os.environ['OPEN_AI_KEY']
+openai.api_key = Constants.OPEN_AI_KEY
 
 class PromptGenerator:
     _logger: Logger

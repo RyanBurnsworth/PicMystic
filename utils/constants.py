@@ -1,3 +1,4 @@
+import os 
 class Constants: 
     WELCOME_TEXT = "Welcome to PicMystic\n\n"
     CHOOSE_OPTIONS = "Choose one of the following options:\n\n"
@@ -34,3 +35,6 @@ class Constants:
     CONTENT = "content"
     MODEL = "gpt-3.5-turbo-0613"
     DEFAULT_MAX_PROMPTS = 5
+
+    OPEN_AI_KEY = os.environ['OPEN_AI_KEY'] # update your OPEN AI API Key here
+    
