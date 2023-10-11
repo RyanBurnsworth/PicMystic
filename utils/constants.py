@@ -1,4 +1,17 @@
 class Constants: 
+    WELCOME_TEXT = "Welcome to PicMystic\n\n"
+    CHOOSE_OPTIONS = "Choose one of the following options:\n\n"
+    OPTION_ZERO = "    [0] Generate Image Variations Slideshow (uses webcam)\n"
+    OPTION_ONE = "    [1] Generate User-Prompt Image Slideshow\n"
+    OPTION_TWO = "    [2] Exit\n\n"
+
+    PROMPT_REQUEST = "Enter the prompt: "
+    
+    MENU_ITEM_ZERO = "0"
+    MENU_ITEM_ONE = "1"
+    MENU_ITEM_TWO = "2"
+
+
     DATA = "data"
     URL = "url"
     

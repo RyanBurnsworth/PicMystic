@@ -49,9 +49,37 @@ def show_image_generation_slideshow(input_prompt: str):
             image_location = image_downloader.download_image(image_url)
             media_player.display_image(image_location)
 
+"""
+    Display the main menu in a terminal
+"""
+def display_terminal_menu():
+    print(Constants.WELCOME_TEXT)
+    print(Constants.CHOOSE_OPTIONS)
+    
+    print(Constants.OPTION_ZERO)
+    print(Constants.OPTION_ONE)
+    print(Constants.OPTION_TWO)
+
+    capture_user_input()
+
+"""
+    Perform an action based on the user input in the main menu
+"""
+def capture_user_input():
+    choice = input()
+
+    if choice == Constants.MENU_ITEM_ZERO:
+        show_image_variation_slideshow()
+    elif choice == Constants.MENU_ITEM_ONE:
+        print(Constants.PROMPT_REQUEST)
+        prompt = input()
+
+        show_image_generation_slideshow(prompt)
+    elif choice == Constants.MENU_ITEM_TWO:
+        exit()
+
 def main():
     global prompt_generator, image_downloader, image_generator, face_detector, media_player
-    print("Welcome to PicMystic")
 
     prompt_generator = PromptGenerator()
     image_downloader = ImageDownloader()
@@ -59,9 +87,7 @@ def main():
     face_detector = FaceDetector()
     media_player = MediaPlayer()
 
-    # show_image_variation_slideshow()
-
-    show_image_generation_slideshow("A warm Autumn afternoon in Indiana")
+    display_terminal_menu()
 
 if __name__ == "__main__":
     main()
