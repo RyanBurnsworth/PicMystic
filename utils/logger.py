@@ -1,10 +1,10 @@
 from datetime import datetime
-from constants import Constants
+from utils.constants import Constants
 
 class Logger:
     def __init__(self):
-        print("Initializing Logger")
-    
+        self
+
     def error(self, message: str):
         print("Logging error: " + message)
         current_time = datetime.utcnow()

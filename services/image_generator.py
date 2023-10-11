@@ -3,13 +3,19 @@ from enum import Enum
 from utils.constants import Constants
 from utils.logger import Logger
 
-openai.api_key = ""     # place OpenAI API key here
+openai.api_key = "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"     # place OpenAI API key here
 
+"""
+    An enum for managing the sizes of the output images
+"""
 class Image_Size(Enum):
     SMALL = 1
     MEDIUM = 2
     LARGE = 3
 
+"""
+    A class for generating images and image variations use OpenAI' DALL-E
+"""
 class ImageGenerator:
     _logger: Logger
 
@@ -17,7 +23,7 @@ class ImageGenerator:
         self._logger = Logger()
 
     """
-        Create an image from a user inputted prompt
+        Generate an image from a user prompt
 
         @param prompt - the prompt from the user
         @image_size - the output size of the image (SMALL, MEDIUM, LARGE)
@@ -34,12 +40,16 @@ class ImageGenerator:
             image_url = response[Constants.DATA][0][Constants.URL]
             return image_url
         except Exception as err:
-            print("Error creating image from prompt %s with size %s. Error: " + err % (prompt, image_size))
-            self._logger.error("Error creating image from prompt %s with size %s. Error: " + err % (prompt, image_size))
+            error_message = str(err)
+
+            print("Error creating image from prompt prompt %s with size %s. " % (prompt, image_size.name))
+            self._logger.error("Error creating image from prompt %s with size %s. " % (prompt, image_size.name))
+            self._logger.error(error_message)
+            
             return ""
 
     """
-        Create a variation of an inputted image
+        Generate a variation of an input image
 
         @param image_location - the location of the image to create a variation of
         @param image_size - the output size of the image (SMALL, MEDIUM, LARGE)
@@ -56,8 +66,12 @@ class ImageGenerator:
             image_url = response[Constants.DATA][0][Constants.URL]
             return image_url
         except Exception as err:
-            print("Error creating image variation from image %s with size %s. Error: " + err % (image_location, image_size))
-            self._logger.error("Error creating image variation from image %s with size %s. Error: " + err % (image_location, image_size))
+            error_message = str(err)
+
+            print("Error creating image variation from image %s with size %s. Error: " % (image_location, image_size.name))
+            self._logger.error("Error creating image variation from image %s with size %s. Error: " % (image_location, image_size.name))
+            self._logger.error(error_message)
+
             return ""
 
     """
@@ -67,10 +81,8 @@ class ImageGenerator:
     """
     def _get_image_size(self, image_size: Image_Size) -> str:
         if (image_size is Image_Size.SMALL):
-            return "256x256"
+            return Constants.IMAGE_SIZE_SMALL
         elif (image_size is Image_Size.MEDIUM):
-            return "512x512"
+            return Constants.IMAGE_SIZE_MEDIUM
         elif (image_size is Image_Size.LARGE):
-            return "1024x1024"
-
-        return ""
+            return Constants.IMAGE_SIZE_LARGE
