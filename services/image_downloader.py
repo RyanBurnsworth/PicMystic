@@ -1,5 +1,6 @@
 import os
 import wget
+import shutil
 from utils.logger import Logger
 
 class ImageDownloader:
@@ -19,6 +20,7 @@ class ImageDownloader:
         
         try:
             filename =  wget.download(image_url)
+            shutil.move("./" + filename, "./images/")
         except Exception as err:
             print("Error downloading image: %s" % image_url)
             self._logger.error("Error download image: %s" % image_url)

@@ -1,9 +1,10 @@
+import os
 import openai
 from enum import Enum
 from utils.constants import Constants
 from utils.logger import Logger
 
-openai.api_key = "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"     # place OpenAI API key here
+openai.api_key = os.environ['OPEN_AI_KEY']
 
 """
     An enum for managing the sizes of the output images
