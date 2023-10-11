@@ -9,6 +9,10 @@ class FaceDetector:
     def __init__(self):
         self._utils = Utils()
     
+    """
+        Keep the webcam on until a face is detected. Once a face is detected save the image.
+        @returns the location of the image taken
+    """
     def start_face_detection(self) -> str:
         saved_image = ""
         casc_path = os.getcwd() + "\\resources\\haarcascade_frontalface_default.xml"
@@ -31,10 +35,7 @@ class FaceDetector:
                 cv2.imwrite(saved_image, frame)
                 self._capturing_face = False
             
-            cv2.imshow('Video', frame)
-
         video_capture.release()
-        cv2.destroyAllWindows()
         return saved_image
 
     def stop_face_detection(self):
