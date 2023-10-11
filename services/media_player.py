@@ -8,6 +8,7 @@ class MediaPlayer:
     
     """
         Display an image fullscreen for a period of a given time delay
+        
         @param image_location - the location of the image
         @param image_delay - the length to display the image
     """

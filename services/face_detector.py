@@ -13,7 +13,7 @@ class FaceDetector:
         Keep the webcam on until a face is detected. Once a face is detected save the image.
         @returns the location of the image taken
     """
-    def start_face_detection(self) -> str:
+    def get_facial_image(self) -> str:
         saved_image = ""
         casc_path = os.getcwd() + "\\resources\\haarcascade_frontalface_default.xml"
         face_cascade = cv2.CascadeClassifier(casc_path)
@@ -31,7 +31,7 @@ class FaceDetector:
         
             if len(faces) > 0:
                 current_directory = os.getcwd() + "\\images\\"
-                saved_image = current_directory + self._utils.getDateTimeAsString() + ".png"
+                saved_image = current_directory + self._utils.get_date_time_as_string() + ".png"
                 cv2.imwrite(saved_image, frame)
                 self._capturing_face = False
             

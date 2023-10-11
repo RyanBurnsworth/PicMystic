@@ -1,3 +1,4 @@
+import os
 import time
 import paho.mqtt.client as mqtt
 from utils.constants import Constants
@@ -25,7 +26,7 @@ class MQTTService:
     def connect(self):
         self._client.on_connect = self._on_connect
         self._client.on_disconnect= self._on_disconnect
-        self._client.connect(Constants.MQTT_SERVER)
+        self._client.connect(os.environ['MQTT_SERVER'])
 
     def send(self, topic, message):
         self._client.publish(topic, message, qos=0, retain=False)
