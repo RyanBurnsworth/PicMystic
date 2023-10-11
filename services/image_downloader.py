@@ -16,6 +16,8 @@ class ImageDownloader:
         @returns the file location of the downloaded image
     """
     def download_image(self, image_url: str) -> str:
+        print("Downloading image from: %s" % image_url)
+
         current_directory = os.getcwd() + "\\images\\"
         
         try:

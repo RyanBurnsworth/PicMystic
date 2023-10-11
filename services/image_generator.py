@@ -31,6 +31,8 @@ class ImageGenerator:
         @returns - the url to the image generated
     """
     def create_image_from_prompt(self, prompt: str, image_size: Image_Size) -> str:
+        print("Generating an image from the prompt: %prompt" % prompt)
+
         try:
             response = openai.Image.create(
                 prompt=prompt,
@@ -57,6 +59,8 @@ class ImageGenerator:
         @returns - the url to the generated image variant
     """
     def create_image_variation(self, image_location: str, image_size: Image_Size) -> str:
+        print("Generating image variations from image: %s" % image_location)
+        
         try:
             response = openai.Image.create_variation(
                 image=open(image_location, "rb"),

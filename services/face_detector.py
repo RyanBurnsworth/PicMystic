@@ -14,6 +14,8 @@ class FaceDetector:
         @returns the location of the image taken
     """
     def get_facial_image(self) -> str:
+        print("Detecting Face...")
+        
         saved_image = ""
         casc_path = os.getcwd() + "\\resources\\haarcascade_frontalface_default.xml"
         face_cascade = cv2.CascadeClassifier(casc_path)

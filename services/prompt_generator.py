@@ -27,6 +27,8 @@ class PromptGenerator:
 
         system_message = "For every user input give back " + str(max_prompts) + " variations of that prompt which can be used for generating images with DALL-E. Do not provide an explanation and only provide the list in a JSON format. For example, { \"variation_1\": \"This is variation one\", \"variation_2\", \"This is variation 2\", ... }"
         try :
+            print("Generating %d prompt variations from input: %s " % (max_prompts, input_prompt))
+
             chat_completion = openai.ChatCompletion.create(model=Constants.MODEL, messages=[{Constants.ROLE: Constants.SYSTEM, Constants.CONTENT: system_message}, { Constants.ROLE: Constants.USER, Constants.CONTENT: input_prompt }])
             output_prompts = chat_completion.choices[0].message.content
         except Exception as err:

@@ -30,6 +30,12 @@ def show_image_variation_slideshow(number_of_slides = Constants.DEFAULT_NUMBER_O
             image_location = image_downloader.download_image(image_url)
             media_player.display_image(image_location)
 
+"""
+    Show a slideshow of AI generated images based on a user prompt. 
+    The user prompt is fed in to ChatGPT to generate a number of variations of the prompt which are used for the slideshow
+    
+    @param input_prompt - the seed prompt
+"""
 def show_image_generation_slideshow(input_prompt: str):
     global prompt_generator
 

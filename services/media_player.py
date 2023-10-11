@@ -13,6 +13,8 @@ class MediaPlayer:
         @param image_delay - the length to display the image
     """
     def display_image(self, image_location: str, image_delay = Constants.DEFAULT_IMAGE_DELAY):
+        print("Displaying image: $s" % image_location)
+        
         media_player = vlc.MediaPlayer()
         media_player.toggle_fullscreen()
 
