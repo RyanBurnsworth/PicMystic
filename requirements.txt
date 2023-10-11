@@ -1,0 +1,6 @@
+mqtt==0.0.1
+openai==0.27.6
+openapi-schema-pydantic==1.2.4
+opencv-python==4.5.4.60
+virtualenv==20.23.0
+wget==3.2
