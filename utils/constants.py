@@ -33,7 +33,7 @@ class Constants:
     SYSTEM = "system"
     USER = "user"
     CONTENT = "content"
-    MODEL = "gpt-3.5-turbo-0613"
+    MODEL = "gpt-4-1106-preview"
     DEFAULT_MAX_PROMPTS = 5
 
     OPEN_AI_KEY = os.environ['OPEN_AI_KEY'] # update your OPEN AI API Key here

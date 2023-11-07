@@ -29,7 +29,7 @@ class PromptGenerator:
         try :
             print("Generating %d prompt variations from input: %s " % (max_prompts, input_prompt))
 
-            chat_completion = openai.ChatCompletion.create(
+            chat_completion = openai.chat.completions.create(
                 temperature = 0.6,
                 model = Constants.MODEL, 
                 messages = [{Constants.ROLE: Constants.SYSTEM, Constants.CONTENT: system_message}, { Constants.ROLE: Constants.USER, Constants.CONTENT: input_prompt }])

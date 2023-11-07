@@ -33,13 +33,14 @@ class ImageGenerator:
         print("Generating an image from the prompt: %s" % prompt)
 
         try:
-            response = openai.Image.create(
+            response = openai.images.generate(
+                model="dall-e-3",
                 prompt=prompt,
                 n=1,
                 size=self._get_image_size(image_size)
             )
 
-            image_url = response[Constants.DATA][0][Constants.URL]
+            image_url = response.data[0].url
             return image_url
         except Exception as err:
             error_message = str(err)
@@ -61,13 +62,13 @@ class ImageGenerator:
         print("Generating image variations from image: %s" % image_location)
 
         try:
-            response = openai.Image.create_variation(
+            response = openai.images.create_variation(
                 image=open(image_location, "rb"),
                 n=1,
                 size=self._get_image_size(image_size)
             )
 
-            image_url = response[Constants.DATA][0][Constants.URL]
+            image_url = response.data[0].url
             return image_url
         except Exception as err:
             error_message = str(err)
